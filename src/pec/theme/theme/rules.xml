@@ -22,11 +22,11 @@
       />
 
     <!-- Copy base tag from Plone -->
-<!--    <before
+    <before
       css:content="html head base"
       css:theme-children="html head"
       />
--->
+
     <!-- Copy link, style, meta tags from Plone head -->
     <before
       content="/html/head/link | /html/head/style | /html/head/meta"
@@ -43,41 +43,19 @@
     <!-- Copy script tags from Plone head to end of body -->
     <after
       css:content="html head script"
-      css:theme-children="html body"
+      css:theme-children="html body div#plone_js"
       />
 
     <!-- LOGO -->
-    <copy
-      attributes="href"
-      css:content="#portal-logo"
-      css:theme=".navbar-brand"
+    <replace
+      css:content="a#portal-logo"
+      css:theme="div.gt-logo a"
       />
 
     <!-- PORTAL NAVIGATION -->
     <replace
       css:content-children="#portal-globalnav"
-      css:theme-children="#navbar"
-      />
-
-    <!-- LOGIN (FOR ANONYMOUS USERS) -->
-    <replace
-      if-content="//li[@id='anon-personalbar']"
-      css:content="#personaltools-login"
-      css:theme=".dropdown-toggle"
-      />
-
-    <!-- USER NAME (FOR LOGGED-IN USERS) -->
-    <replace
-      if-content="not(//li[@id='anon-personalbar'])"
-      content="//a[@id='user-name']/text()"
-      css:theme="#user-name"
-      />
-
-    <!-- USER ACTIONS (FOR LOGGED-IN USERS) -->
-    <replace
-      if-content="not(//li[@id='anon-personalbar'])"
-      css:content-children="#portal-personaltools .actionMenuContent ul"
-      css:theme-children="#action-menu-content"
+      css:theme-children="#bs-example-navbar-collapse-1"
       />
 
     <!-- BREADCRUMBS -->

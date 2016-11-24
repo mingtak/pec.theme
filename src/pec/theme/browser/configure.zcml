@@ -17,4 +17,14 @@
       directory="static"
       />
 
+  <!-- Browser View -->
+  <browser:page
+      name="pec_macro"
+      for="*"
+      class=".views.PECMacro"
+      template="template/pec_macro.pt"
+      layer="pec.theme.interfaces.IPecThemeLayer"
+      permission="zope2.View"
+      />
+
 </configure>

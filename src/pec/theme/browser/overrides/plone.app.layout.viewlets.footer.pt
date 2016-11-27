@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-xs-12">
+
+<section class="portlet portletClassic" id="portal-footer-signature">
+    <div class="portletContent">
+        <div class="row">
+            <div class="col-xs-6">
+<br>                Copyright © <tal:year replace="view/year"> 國立臺灣藝術大學體育教學中心. All Rights Reserved.
+            </div>
+            <div class="col-xs-6">
+校址：22058新北市板橋區大觀路1段59號<br>
+電話：02-2272-2181<br>
+校安專線：02-2967-4948
+            </div>
+        </div>
+    </div>
+</section>
+
+
+	</div>
+</div>

@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="mingjing.content">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+<?python
+from plone import api
+portal = api.portal.get()
+brain = api.content.find(context=portal['1'], Type='News Item', sort_on='created', sort_order='reverse')
+?>
+
+
+
+                        <div class="row">
+                            <div class="col-md-4 col-xs-6" tal:repeat="item python:brain[0:6]">
+                                <div class="gt_blog_wrap mb">
+                                    <figure>
+                                        <a tal:condition="python:item.getObject().image" href="${item/getURL}" title="${item/Description}">
+                                            <img src="${item/getURL}/@@images/image/mini" alt="${item/Title}">
+                                        </a>
+                                    </figure>
+                                    <div class="gt_blog_des_wrap">
+                                        <ul class="gt_blog_meta">
+                                            <li><i class="fa fa-calendar"></i><span tal:replace="python:item.created.strftime('%d %b %Y')"/></li>
+                                        </ul>
+                                        <h5><a href="${item/getURL}">${item/Title}</a></h5>
+                                        <p>${item/Description}</p>
+                                        <a href="${item/getURL}">詳全文 <i class="fa fa-arrow-circle-o-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

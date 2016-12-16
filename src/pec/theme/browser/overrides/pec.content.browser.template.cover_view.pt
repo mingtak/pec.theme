@@ -19,8 +19,8 @@ brain = api.content.find(context=portal['1'], Type='News Item', sort_on='created
 
 
 
-                        <div class="row">
-                            <div class="col-md-4 col-xs-6" tal:repeat="item python:brain[0:6]">
+                        <div id="cover-news-container" class="cols">
+                            <div class="cover-box" tal:repeat="item python:brain[0:6]">
                                 <div class="gt_blog_wrap mb">
                                     <figure>
                                         <a tal:condition="python:item.getObject().image" href="${item/getURL}" title="${item/Description}">

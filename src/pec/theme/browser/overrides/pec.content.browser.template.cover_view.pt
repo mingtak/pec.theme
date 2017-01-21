@@ -18,6 +18,9 @@ brain = api.content.find(context=portal['1'], Type='News Item', sort_on='created
 ?>
 
 
+<metal:macro use-macro="context/@@pec_macro/macros/cover_hero"/>
+
+
 <h3>最新消息</h3>
 
                         <div class="row">

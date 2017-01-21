@@ -46,6 +46,11 @@
       css:theme-children="html body div#plone_js"
       />
 
+    <after
+      css:content-children="#script_to_footer"
+      css:theme-children="body"
+      />
+
     <!-- LOGO -->
     <replace
       css:content="a#portal-logo"
@@ -89,6 +94,7 @@
     <drop css:theme="footer div.gt_footer_bg.default_width" />
     <drop css:theme=".gt_top3_scl_icon" />
     <drop css:theme=".gt_hdr_3_ui_element" />
+    <drop css:content="#viewlet-above-content-body" />
 
     <!-- Strip -->
     <strip css:content="section.portlet" />

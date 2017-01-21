@@ -7,6 +7,21 @@
     i18n:domain="pec.content">
 <body>
 
+
+
+<!-- cover slider , 傳入 context.heroVideo -->
+<metal:row define-macro="cover_hero">
+    <div id="cover_hero">
+        <ul class="bxslider">
+            <li tal:repeat="item python:context.heroVideo.split('\n')">
+                <span tal:replace="structure item" />
+            </li>
+        </ul>
+    </div>
+</metal:row>
+
+
+<!-- portlet, left and right -->
 <metal:row define-macro="left_sidebar">
         <tal:block replace="structure provider:plone.leftcolumn" />
 </metal:row>

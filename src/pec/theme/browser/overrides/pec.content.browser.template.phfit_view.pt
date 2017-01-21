@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="pec.content">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+?>
+<script src="++resource++pec.theme/d3-3.5.12/d3.min.js"></script>
+<script src="++resource++pec.theme/c3-0.4.11/c3.min.js"></script>
+
+
+
+<tal:c3 define="ids python:[('sitUps', '仰臥起坐'),
+                            ('forwardBend', '坐姿體前'),
+                            ('longJump', '立定跳遠'),
+                            ('running800', '心肺功能'),
+                            ('bmi', '身體質量')]"
+        repeat="label ids">
+<div id="${python:label[0]}"/>
+<script>
+var chart = c3.generate({
+    bindto: '#${python:label[0]}',
+    data: {
+        columns: [
+            ['全國常模', 130],
+            ['全校平均', 120],
+            ['個人體適能', ${python:getattr(context, label[0]) if label[0] !='running800' else getattr(context, label[0]).total_seconds()}]
+        ],
+        types: {
+            全國常模: 'bar',
+            全校平均: 'bar',
+            個人體適能: 'bar',
+        },
+    },
+    size: {
+        height: 200
+    },
+    bar: {
+        width: 30
+    },
+    axis: {
+        rotated: true,
+        x: {
+            type: 'category',
+            categories: ['${python:label[1]}',],
+        }
+    },
+});
+
+</script>
+</tal:c3>
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

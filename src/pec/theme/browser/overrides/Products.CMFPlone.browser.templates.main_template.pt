@@ -69,7 +69,7 @@
 
     <section id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
 
-    <article id="portal-column-content">
+    <section id="portal-column-content">
 
       <metal:block define-slot="content">
 
@@ -81,20 +81,22 @@
 <!-- Custom Section Start -->
 <section>
     <div class="container">
-        <div class="row">
+        <div class="row sticky-parent">
 
 <!-- Left Column -->
 <tal:lc condition="sl">
-    <div class="col-md-3">
-        <tal:block replace="structure provider:plone.leftcolumn"/>
+    <div class="col-md-3 sticky-column">
+        <aside class="gt_aside_outer_wrap theiaStickySidebar">
+            <tal:block replace="structure provider:plone.leftcolumn"/>
+        </aside>
     </div>
 </tal:lc>
 
-      <div tal:attributes="class python:'col-md-6' if (sr and sl) else 'col-md-9' if (sr or sl) else 'col-md-12' ">
-        <article id="content">
+      <div tal:attributes="class python:'col-md-6 sticky-column' if (sr and sl) else 'col-md-9 sticky-column' if (sr or sl) else 'col-md-12' ">
+        <article id="content" class="theiaStickySidebar">
 
           <metal:bodytext define-slot="main">
-
+<!--
           <header>
             <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" />
             <metal:title define-slot="content-title">
@@ -114,7 +116,7 @@
                 </div>
             </metal:description>
           </header>
-
+-->
           <section id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" />
           <section id="content-core">
             <metal:text define-slot="content-core" tal:content="nothing">
@@ -130,11 +132,12 @@
 
 <!-- Right Column -->
 <tal:lc condition="sr">
-    <div class="col-md-3">
-        <tal:block replace="structure provider:plone.leftcolumn"/>
+    <div class="col-md-3 sticky-column">
+        <aside class="gt_aside_outer_wrap theiaStickySidebar">
+            <tal:block replace="structure provider:plone.rightcolumn"/>
+        </aside>
     </div>
 </tal:lc> 
-
 
         </div>
     </div>
@@ -154,7 +157,7 @@
       <footer>
         <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" />
       </footer>
-    </article>
+    </section>
 
 
 

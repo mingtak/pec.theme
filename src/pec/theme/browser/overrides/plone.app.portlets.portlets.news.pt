@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="">
+<section class="portlet portletNews"  role="section"
+    i18n:domain="plone">
+
+
+
+
+                            <!--Category Wrap Start-->
+                            <div class="gt_aside_category gt_detail_hdg aside_margin_bottom">
+<h6>
+       <a href="#"
+           class="tile"
+           tal:define="all_news_link view/all_news_link"
+           tal:omit-tag="not:all_news_link"
+           tal:attributes="href all_news_link">最新消息</a>
+</h6>
+
+                                <ul>
+      <tal:newsitems  tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                  plone_layout context/@@plone_layout"
+                      tal:repeat="obj view/published_news_items">
+      <li tal:define="oddrow repeat/obj/odd;"
+          tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+
+        <a  href=""
+            class="tile"
+            tal:content="obj/pretty_title_or_id"
+            tal:attributes="href obj/getURL;
+                            title obj/Description">
+        </a>
+      </li>
+     </tal:newsitems>
+                                </ul>
+                            </div>
+                            <!--Category Wrap Start-->
+
+
+
+</section>
+</html>

@@ -79,6 +79,19 @@
       css:theme-children="footer div.copyright_wrap.default_width"
       />
 
+    <!-- Hero Video, viewlet -->
+    <replace
+      css:content="div#hero_banner"
+      css:theme="div#home"
+      />
+    <!-- Drop -->
+    <drop css:theme="footer div.gt_newsltr_bg.default_width" />
+    <drop css:theme="footer div.gt_footer_bg.default_width" />
+    <drop css:theme=".gt_top3_scl_icon" />
+    <drop css:theme=".gt_hdr_3_ui_element" />
+
+    <!-- Strip -->
+    <strip css:content="section.portlet" />
 
   </rules>
 

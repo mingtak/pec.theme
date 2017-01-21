@@ -18,27 +18,19 @@ brain = api.content.find(context=portal['1'], Type='News Item', sort_on='created
 ?>
 
 
+<h3>最新消息</h3>
 
-                        <div class="grid" data-masonry="{ 'columnWidth': 200, 'itemSelector': '.grid-item' }">
-<div class="grid-sizer"></div>
-                            <div class="grid-item" tal:repeat="item python:brain[0:6]">
-                                <div class="gt_blog_wrap mb">
-                                    <figure>
-                                        <a tal:condition="python:item.getObject().image" href="${item/getURL}" title="${item/Description}">
-                                            <img src="${item/getURL}/@@images/image/mini" alt="${item/Title}">
-                                        </a>
-                                    </figure>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-6 cover-item" tal:repeat="item python:brain[0:12]">
+                                <div class="gt_blog_wrap mb cover-item">
                                     <div class="gt_blog_des_wrap">
-                                        <ul class="gt_blog_meta">
-                                            <li><i class="fa fa-calendar"></i><span tal:replace="python:item.created.strftime('%d %b %Y')"/></li>
-                                        </ul>
                                         <h5><a href="${item/getURL}">${item/Title}</a></h5>
-                                        <p>${item/Description}</p>
-                                        <a href="${item/getURL}">詳全文 <i class="fa fa-arrow-circle-o-right"></i></a>
+                                        <a href="${item/getURL}" class="pull-right">詳全文 <i class="fa fa-arrow-circle-o-right"></i></a>
+                                        <li><i class="fa fa-calendar"></i> <span tal:replace="python:item.created.strftime('%d %b %Y')"/></li>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+</div>
 
 </metal:content-core>
 </metal:content-core>

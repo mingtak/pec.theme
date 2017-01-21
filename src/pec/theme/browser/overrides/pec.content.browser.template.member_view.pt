@@ -12,7 +12,20 @@
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
 
-override member view
+
+<div class="row teacher" tal:repeat="item context/getChildNodes">
+    <div class="col-md-3">
+        <img src="${item/absolute_url}/@@images/image/preview"/>
+    </div>
+    <div class="col-md-9">
+        <h5><strong>姓名</strong>: ${item/title}</h5>
+        <h5><strong>職稱</strong>: ${item/jobTitle}</h5>
+        <h5><strong>聯絡電話</strong>: ${item/tel}</h5>
+        <h5><strong>Email</strong>: <a href="mailto:${item/email}">${item/email}</a></h5>
+        <a href="javascript:void(0)" class="btn btn-info btn-small">展開 / 收合</a>
+        <div class="detail" tal:content="structure item/text/raw" />
+    </div>
+</div>
 
 </metal:content-core>
 </metal:content-core>

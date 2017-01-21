@@ -1,3 +1,12 @@
+/* template-member_view begin*/
+.template-member_view #content .teacher { box-shadow:5px 5px 5px #aaa; border:solid 2px #80CD33; margin: 25px 0; padding:10px 0; }
+.template-member_view #content .teacher .detail { display:none; margin-top: 20px;}
+.template-member_view #content .teacher img { width:100%; margin: 10px 0 }
+.template-member_view #content .teacher .btn { color:#fff; margin-top:5px;}
+.template-member_view #content .teacher a { color:#071; margin-top:5px;}
+.template-member_view #content .teacher h5 { font-family: 'Noto Sans TC';}
+/* template-member_view end */
+
 .bx-wrapper .bx-next {
     right: 20px;
 }

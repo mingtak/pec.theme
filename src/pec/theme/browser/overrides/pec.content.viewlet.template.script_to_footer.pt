@@ -1,12 +1,20 @@
 <div id="script_to_footer">
 
+    <!-- 老師介紹 -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".teacher .btn").click(function(){
+                $(this).siblings(".detail").toggle(1000);
+            });
+        });
+    </script>
+
+    <!-- bxSlider for Cover -->
     <script>
-
-$('.bxslider').bxSlider({
-  video: true,
-  useCSS: false
-});
-
+        $('.bxslider').bxSlider({
+            video: true,
+            useCSS: false
+        });
     </script>
 
 </div>

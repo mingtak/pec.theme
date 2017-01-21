@@ -1,0 +1,16 @@
+<!--Banner Wrap Start-->
+<?python
+request = econtext.get('request')
+isEdit = request.get('ACTUAL_URL').endswith('edit')
+?>
+
+
+    <div class="gt_sub_banner_bg default_width" id="hero_banner"  tal:condition="python:not isEdit and context.portal_type != 'Cover'">
+        <div class="container">
+            <div class="gt_sub_banner_hdg  default_width">
+                <h3 tal:content="context/title">Shop Detail</h3>
+            </div>
+        </div>
+
+    </div>
+

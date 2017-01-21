@@ -1,0 +1,12 @@
+<div id="script_to_footer">
+
+    <script>
+
+$('.bxslider').bxSlider({
+  video: true,
+  useCSS: false
+});
+
+    </script>
+
+</div>

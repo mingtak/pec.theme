@@ -7,13 +7,20 @@
 .template-member_view #content .teacher h5 { font-family: 'Noto Sans TC';}
 /* template-member_view end */
 
+/* pagination start */
+.pagination ul li { float: left; margin:0; padding: 10px; border:1px solid #8c3; }
+.pagination ul li.active { background-color: #8c3; padding-bottom:11px}
+.pagination ul li.disabled { padding-bottom:11px}
+/* pagination end */
+
+/* table view */
 table.listing thead { display:none }
 table.listing tr div { border: 2px solid #8c3; margin:8px 5px; padding: 3px 5px; box-shadow:5px 5px 5px #aaa; font-size:18px}
 table.listing tr td a { padding-left: 10px }
 table.listing tr td { border:0; }
 table.listing tr td:last-child { display:none }
 table.listing tr.even { background: initial }
-
+/* table view */
 
 .bx-wrapper .bx-next {
     right: 20px;

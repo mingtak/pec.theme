@@ -23,7 +23,7 @@
         <h5><strong>聯絡電話</strong>: ${item/tel}</h5>
         <h5><strong>Email</strong>: <a href="mailto:${item/email}">${item/email}</a></h5>
         <a href="javascript:void(0)" class="btn btn-info btn-small">展開 / 收合</a>
-        <div class="detail" tal:content="structure item/text/raw" />
+        <div class="detail" tal:content="structure item/text/raw | nothing"/>
     </div>
 </div>
 

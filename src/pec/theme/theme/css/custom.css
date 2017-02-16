@@ -7,6 +7,14 @@
 .template-member_view #content .teacher h5 { font-family: 'Noto Sans TC';}
 /* template-member_view end */
 
+table.listing thead { display:none }
+table.listing tr div { border: 2px solid #8c3; margin:8px 5px; padding: 3px 5px; box-shadow:5px 5px 5px #aaa; font-size:18px}
+table.listing tr td a { padding-left: 10px }
+table.listing tr td { border:0; }
+table.listing tr td:last-child { display:none }
+table.listing tr.even { background: initial }
+
+
 .bx-wrapper .bx-next {
     right: 20px;
 }
@@ -49,14 +57,14 @@ tr.even {
     width: inherit;
 }
 
-footer div, div, body h3 {
+footer div, div, body h3, body h4, body h5 {
     font-family: 'Noto Sans TC';
 }
 
 #content-core p {
     font-family: 'Noto Sans TC';
     font-size: 18px;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     line-height: 1.5;
 }
 
@@ -183,6 +191,7 @@ aside a, aside h1, aside h2, aside h3, aside h4, aside h5, aside h6 {
     padding: 10px 0;
 }
 
+
 #content p a, #content a {
     color: #481;
 }
@@ -222,3 +231,11 @@ aside a, aside h1, aside h2, aside h3, aside h4, aside h5, aside h6 {
 section {
     padding: 12px 0;
 }
+
+.lang_selector { font-size:14px}
+.lang_selector a {
+    color: #fff;
+    margin: 0 5px;
+    font-family: 'Noto Sans TC';
+}
+.gt_hdr3_search { width: initial;}

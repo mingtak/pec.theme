@@ -56,27 +56,30 @@
                       <tal:block tal:replace="field_data/value" />
                     </td>
                     <td tal:condition="python:field == 'Title'">
-                      <img class="image-icon"
-                         tal:define="getIcon python:item.getURL()+'/@@images/image/icon'"
-                         tal:condition="python:  item.getIcon"                          
-                         tal:attributes="href item/getURL;
-                                         src  string:$getIcon"
-                      />
-                      <a href="#"
-                          tal:attributes="href item_link;
-                          class string:$item_wf_state_class $item_type_class;
-                          title item_description;"
-                          tal:content="item_title">
-                        Item Title
-                      </a>
+                      <div>
+                        <img class="image-icon"
+                           tal:define="getIcon python:item.getURL()+'/@@images/image/icon'"
+                           tal:condition="python:  item.getIcon"                          
+                           tal:attributes="href item/getURL;
+                                           src  string:$getIcon"
+                        />
+                        <a href="#"
+                            tal:attributes="href item_link;
+                            class string:$item_wf_state_class $item_type_class;
+                            title item_description;"
+                            tal:content="item_title">
+                          Item Title
+                        </a>	
+                      </div>
                     </td>
-                    <td tal:condition="python:field == 'Creator'"
+<!--                    <td tal:condition="python:field == 'Creator'"
                         tal:define="author python:view.pas_member.info(item_creator);
                                     name python:author['fullname'] or author['username']">
                       <a tal:condition="author"
                           tal:attributes="href string:${view/navigation_root_url}/author/${item_creator}"
                           tal:content="name">Jos Henken</a>
                     </td>
+-->
                   </tal:block>
 
                 </tr>

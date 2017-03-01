@@ -36,6 +36,10 @@
             </tr>
           </thead>
           <tbody>
+<?python
+from plone import api
+portal = api.portal.get()
+?>
             <tal:entries tal:repeat="item batch">
               <tal:block tal:define="item_url item/getURL;
                                      item_title item/Title;
@@ -62,6 +66,10 @@
                            tal:condition="python:  item.getIcon"                          
                            tal:attributes="href item/getURL;
                                            src  string:$getIcon"
+                        />
+                        <img class="image-icon"
+                           tal:condition="python:not item.getIcon"
+                           src="${portal/absolute_url}/resource/images/team_logo.jpg/@@images/image/icon"
                         />
                         <a href="#"
                             tal:attributes="href item_link;

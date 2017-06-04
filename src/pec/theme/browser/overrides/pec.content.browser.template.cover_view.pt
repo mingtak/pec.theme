@@ -19,102 +19,28 @@ brain = api.content.find(context=portal['1'], Type='News Item', sort_on='created
 
 
 <metal:macro use-macro="context/@@pec_macro/macros/cover_hero"/>
-<?python
-from plone import api
-portal = api.portal.get()
-?>
 
 <h3>最新消息</h3>
 
-                        <div class="row">
-                            <div class="col-md-4 col-xs-6 cover-item" tal:repeat="item python:brain[0:3]">
-                                <div class="gt_blog_wrap mb cover-item">
-                                    <div class="gt_blog_des_wrap">
+<?python
+from plone import api
+portal = api.portal.get()
+tabsNameList = ['全部公告', '競賽活動', '教學研究', '場館器材']
+brain_all = api.content.find(context=portal, Type='News Item', sort_on='created', sort_order='reverse', sort_limit=20)[:20]
+brain_race = api.content.find(context=portal, Type='News Item', category='Race', sort_on='created', sort_order='reverse', sort_limit=20)[:20]
+brain_study = api.content.find(context=portal, Type='News Item', category='Study', sort_on='created', sort_order='reverse', sort_limit=20)[:20]
+brain_venue = api.content.find(context=portal, Type='News Item', category='Venue', sort_on='created', sort_order='reverse', sort_limit=20)[:20]
+tabsBrain = [brain_all, brain_race, brain_study, brain_venue]
+?>
 
-                        <img class="image-mini"
-                             tal:condition="python:item.getObject().image"
-                             src="${item/getURL}/@@images/image/mini"
-                        />
-                        <img class="image-mini"
-                             tal:condition="python:not item.getObject().image"
-                             src="${portal/absolute_url}/resource/images/team_logo.jpg/@@images/image/mini"
-                        />
-
-                                        <h5><a href="${item/getURL}">${item/Title}</a></h5>
-                                        <a href="${item/getURL}" class="pull-right">詳全文 <i class="fa fa-arrow-circle-o-right"></i></a>
-                                        <li><i class="fa fa-calendar"></i> <span tal:replace="python:item.created.strftime('%d %b %Y')"/></li>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-4 col-xs-6 cover-item" tal:repeat="item python:brain[3:6]">
-                                <div class="gt_blog_wrap mb cover-item">
-                                    <div class="gt_blog_des_wrap">
-
-                        <img class="image-mini"
-                             tal:condition="python:item.getObject().image"
-                             src="${item/getURL}/@@images/image/mini"
-                        />
-                        <img class="image-mini"
-                             tal:condition="python:not item.getObject().image"
-                             src="${portal/absolute_url}/resource/images/team_logo.jpg/@@images/image/mini"
-                        />
-
-                                        <h5><a href="${item/getURL}">${item/Title}</a></h5>
-                                        <a href="${item/getURL}" class="pull-right">詳全文 <i class="fa fa-arrow-circle-o-right"></i></a>
-                                        <li><i class="fa fa-calendar"></i> <span tal:replace="python:item.created.strftime('%d %b %Y')"/></li>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4 col-xs-6 cover-item" tal:repeat="item python:brain[6:9]">
-                                <div class="gt_blog_wrap mb cover-item">
-                                    <div class="gt_blog_des_wrap">
-
-                        <img class="image-mini"
-                             tal:condition="python:item.getObject().image"
-                             src="${item/getURL}/@@images/image/mini"
-                        />
-                        <img class="image-mini"
-                             tal:condition="python:not item.getObject().image"
-                             src="${portal/absolute_url}/resource/images/team_logo.jpg/@@images/image/mini"
-                        />
-
-                                        <h5><a href="${item/getURL}">${item/Title}</a></h5>
-                                        <a href="${item/getURL}" class="pull-right">詳全文 <i class="fa fa-arrow-circle-o-right"></i></a>
-                                        <li><i class="fa fa-calendar"></i> <span tal:replace="python:item.created.strftime('%d %b %Y')"/></li>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4 col-xs-6 cover-item" tal:repeat="item python:brain[9:12]">
-                                <div class="gt_blog_wrap mb cover-item">
-                                    <div class="gt_blog_des_wrap">
-
-                        <img class="image-mini"
-                             tal:condition="python:item.getObject().image"
-                             src="${item/getURL}/@@images/image/mini"
-                        />
-                        <img class="image-mini"
-                             tal:condition="python:not item.getObject().image"
-                             src="${portal/absolute_url}/resource/images/team_logo.jpg/@@images/image/mini"
-                        />
-
-                                        <h5><a href="${item/getURL}">${item/Title}</a></h5>
-                                        <a href="${item/getURL}" class="pull-right">詳全文 <i class="fa fa-arrow-circle-o-right"></i></a>
-                                        <li><i class="fa fa-calendar"></i> <span tal:replace="python:item.created.strftime('%d %b %Y')"/></li>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+        <div class="row">
+            <div class="col-sm-12"
+                 tal:define="tabs_name tabsNameList;
+                             tabs_id_prefix string:cover_tabs;
+                             brains python:tabsBrain;">
+                <metal:macro use-macro="context/@@pec_macro/macros/views_tabs" />
+            </div>
+        </div>
 
 </metal:content-core>
 </metal:content-core>

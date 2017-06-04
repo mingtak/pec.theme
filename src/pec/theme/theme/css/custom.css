@@ -258,3 +258,16 @@ section {
 .template-tabular_view table .image-icon {margin: auto 5px auto 10px}
 
 .phfix-overview input {background-color:#ddd}
+
+/* views_tabs */
+#content-core .views_tabs li a	{ font-family: 'Noto Sans TC';}
+.views_tabs li {padding:5px 0}
+.views_tabs li a {font-size:18px}
+.views_tabs li i { margin: 0 10px }
+#.views_tabs li.active { background-color:#ff9}
+#.views_tabs li.active a { background-color:#ff9; border: initial}
+
+
+/* nav */
+nav.gt_hdr3_navigation ul#bs-example-navbar-collapse-1 {margin-bottom:0px}
+nav.gt_hdr3_navigation ul#bs-example-navbar-collapse-1 > li > a {padding:30px 10px}

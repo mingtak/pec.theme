@@ -30,5 +30,34 @@
         <tal:block replace="structure provider:plone.rightcolumn" />
 </metal:row>
 
+
+<!-- 分頁 tabs, BrowserView用, 傳入tabs_name, brains, tabs_id_prefix -->
+  <metal:row define-macro="views_tabs">
+    <div class="views_tabs">
+
+      <ul class="nav nav-tabs">
+          <li tal:repeat="tab tabs_name"
+              class="${python:'active' if repeat['tab'].start else None}">
+              <a data-toggle="tab" href="#${tabs_id_prefix}-${repeat/tab/index}">${tab}</a>
+          </li>
+      </ul>
+      <div class="tab-content">
+          <div tal:repeat="tab tabs_name"
+               id="${tabs_id_prefix}-${repeat/tab/index}" class="tab-pane fade in ${python:'active' if repeat['tab'].start else None}">
+              <ul>
+                  <li tal:repeat="item python:brains[repeat['tab'].index]">
+                      <a href="${item/getURL}">
+<i class="fa fa-caret-right" aria-hidden="true"></i>
+
+                          ${python:item.Title[0:120]} ${python:'...' if len(item.Title) > 120 else None}
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+    </div>
+</metal:row>
+
 </body>
 </html>

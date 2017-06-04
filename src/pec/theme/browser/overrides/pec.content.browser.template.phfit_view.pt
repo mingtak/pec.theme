@@ -19,21 +19,23 @@ portal = api.portal.get()
 <script src="++resource++pec.theme/d3-3.5.12/d3.min.js"></script>
 <script src="++resource++pec.theme/c3-0.4.11/c3.min.js"></script>
 
-
-
-<tal:c3 define="ids python:[('sitUps', '仰臥起坐'),
+<?python import pdb; pdb.set_trace?>
+<tal:c3 define="age context/age;
+                gender python:'m' if context.gender else 'f';
+                ids python:[('sitUps', '仰臥起坐'),
                             ('forwardBend', '坐姿體前'),
                             ('longJump', '立定跳遠'),
                             ('running800', '心肺功能'),
                             ('bmi', '身體質量')]"
         repeat="label ids">
 <div id="${python:label[0]}"/>
+<p>你的 ${python:label[1]} 體適能分數為: ${python:view.phfitScore[label[0]]} %</p>
 <script>
 var chart = c3.generate({
     bindto: '#${python:label[0]}',
     data: {
         columns: [
-            ['全國常模', 130],
+            ['全國常模', ${ python:view.phfit_edu[label[0]][gender][str(age)][9] } ],
             ['全校平均', 120],
             ['個人體適能', ${python:getattr(context, label[0]) if label[0] !='running800' else getattr(context, label[0]).total_seconds()}]
         ],

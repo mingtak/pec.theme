@@ -1,6 +1,3 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -15,20 +12,20 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: pec.theme\n"
+"Domain: DOMAIN\n"
 
 #: browser/overrides/pec.content.browser.template.member_view.pt:30
 msgid "Detail"
-msgstr ""
+msgstr "Detail"
 
 #: browser/overrides/pec.content.browser.template.member_view.pt:27
 msgid "Job Title"
-msgstr ""
+msgstr "Job Title"
 
 #: browser/overrides/pec.content.browser.template.member_view.pt:26
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: browser/overrides/pec.content.browser.template.member_view.pt:28
 msgid "Phone"
-msgstr ""
+msgstr "Phone"
